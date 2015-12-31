@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>QHB-10-红包玩法</title>
+	<!-- <link rel="stylesheet" href="../../public/css/public.min.css">
+	<link rel="stylesheet" href="../static/css/base_HD.min.css"> -->
+	<link rel="stylesheet" href="../static/css/base_HD.mod.css">
+</head>
+<body >
+	<div id="wrap" class="pa wrap bg-hbwf">
+		<script id="nodeData" type="text/html">
+			<div class="pa menu tr">
+				{{each menuurl as v i}}
+					<a href="{{v}}" class="menu-btn {{if i==0}}back{{else if i==1}}home{{else}}index{{/if}}"></a>
+				{{/each}}
+			</div>
+			<a id="prev" href="javascript:;" class="pa pg sc lg middle jilu prev"></a>
+			<div id="hbwf_bx" class="pa hbwf_bx"></div>
+			<a id="next" href="javascript:;" class="pa pg sc lg middle jilu next"></a>
+			<div id="pgnb" class="pa pgnb">
+				<em class="pa curr"></em>/
+				<em class="pa total"></em>
+			</div>
+		</script>
+	</div>
+	<script id="hbwf" type="html/text">
+		{{each list as v i}}
+			{{if i <= 1*row-1}}
+				{{each v.text as tx}}
+					<p>{{tx}}</p>
+				{{/each}}
+			{{/if}}
+		{{/each}}
+	</script>
+	<!-- <script src="../../public/js/jquery.min.js"></script>
+	<script src="../../public/js/jquery.x.min.js"></script>
+	<script src="../../public/js/template.js"></script>
+	<script src="../static/js/base_HD.js"></script>
+	<script src="../static/js/base_HD_Ajax.js"></script> -->
+	<script src="../static/js/base_HD.mod.js"></script>
+	<script>
+		var data = {
+				menuurl: ['#', '#', '#'],//菜单按钮URL,按顺序输出数组,
+				recommendimg: [
+					{
+						src: "../static/images/pic_1.jpg",
+						url: "baidu.com"
+					},
+					{
+						src: "../static/images/pic_2.jpg",
+						url: "google.com"
+					},
+					{
+						src: "../static/images/pic_3.jpg",
+						url: "weibo.com"
+					}
+				],
+				list:[
+					{
+						text: ['在活动时间内，第一次进入红包争夺战相关页面，进行抢商家或用户红包的任意操作时，用户需点击确认，成为“确认参与用户”，方可参与活动，抢夺商家星球红包及其他确认参与用户的战争红包(战争红包是指通过红包火山、红包雨、商家星球抢夺获得的1212现金红包，通过红包秒杀方式获得的1212现金红包及通过参与密令红包活动获得的支付宝现金红包不属于战争红包，无法被抢夺)。战争红包以个为单位进行抢夺，与面额无关。', '红包争夺战包含以下三种红包抢夺模式：', '1. 方式一：抢商家星球红包', '(2)被抢夺成功(即失去一个战争红包)的用户，有1个小时的保护时间，在保护时间内，该用户无法被任何人再次进行抢夺。但处于保护时间内的用户主动选择对其他用户进行抢夺时，保护时间失效，该用户恢复到可以被其他用户抢夺的状态。']
+					},
+					{
+						text: ['123412342134123412341234', '红包争夺战包含以下三种红包抢夺模式：', '1. 方式一：抢商家星球红包', '(2)被抢夺成功(即失去一个战争红包)的用户，有1个小时的保护时间，在保护时间内，该用户无法被任何人再次进行抢夺。但处于保护时间内的用户主动选择对其他用户进行抢夺时，保护时间失效，该用户恢复到可以被其他用户抢夺的状态。']
+					}
+					
+				],
+			},
+			html = template('nodeData',data);
+		document.getElementById('wrap').innerHTML = html;
+		$.pagination({
+			pagnbId:"pgnb",
+			templateId: "hbwf",//模板ID
+			containerId: "hbwf_bx",//容器ID
+			//size: 4,//显示数量
+			//total: 15,//总记录数
+			row: 1,//行数
+			span:1,//每行个数
+			//extra: 8,
+			//other: true,
+			items: data.list //数据
+		});
+	</script>
+</body>
+</html>

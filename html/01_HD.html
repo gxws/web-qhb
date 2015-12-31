@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>QHB-1-首页(该时段已抢过)</title>
+	<!-- <link rel="stylesheet" href="../../public/css/public.min.css">
+	<link rel="stylesheet" href="../static/css/base_HD.min.css"> -->
+	<link rel="stylesheet" href="../static/css/base_HD.mod.css">
+</head>
+<body >
+	<div id="wrap" class="pa wrap bg-home">
+		<script id="nodeData" type="text/html">
+			<div class="pa menu tr">
+				{{each menuurl as v i}}
+					<a href="{{v}}" class="menu-btn {{if i==0}}back{{else if i==1}}home{{else}}index{{/if}}"></a>
+				{{/each}}
+			</div>
+			<div class="pa time">
+				<p>本次纸包抢夺时间为：</p>
+				<p>{{timedata.starttime}}&nbsp;至</p>
+				<p>{{timedata.endtime}}</p>
+			</div>
+			<div class="pa residue {{if residuedata.residue>0}}red{{else}}gray{{/if}}">本时段红包还剩<span>{{residuedata.residue}}</span>个</div>
+			{{if residuedata.residue>0 && residuedata.enable}}
+				<a href="javascript:;" data-ajax={{residuedata.ajaxurl}} class="pa qing enable J_qing"></a>
+			{{else if residuedata.residue>0 }}
+				<div class="pa qing end"></div>
+			{{else}}
+				<div class="pa qing null"></div>
+			{{/if}}
+			<marquee id="roll" class="pa roll">
+				{{each rolldata as sp}}
+					<span>{{sp}}领到了红包</span>
+				{{/each}}
+			</marquee>
+			<div class="pa btn_bx my tc">
+				{{each btns as btn i}}
+				<a href="{{btn}}" class="btn btn-sm text {{if i==0}}myhb{{else if i==1}}dhjl{{else}}yxb{{/if}}"><span></span></a>
+				{{/each}}
+			</div>
+			<div id="modal" class="pa modal"></div>
+			<a href="#" class="pa hbwf tc"></a>
+		</script>
+	</div>
+	<!-- <script src="../../public/js/jquery.min.js"></script>
+	<script src="../../public/js/jquery.x.min.js"></script>
+	<script src="../../public/js/template.js"></script>
+	<script src="../static/js/base_HD.js"></script>
+	<script src="../static/js/base_HD_Ajax.js"></script> -->
+	<script src="../static/js/base_HD.mod.js"></script>
+	<script>
+		var data = {
+			menuurl: ['#', '#', '#'],//菜单按钮URL,按顺序输出数组,
+			timedata: {
+				starttime: "2015-12-12  8:00",
+				endtime: "2015-12-13  12:00"//红包开始时间，结束时间
+			},
+			residuedata: {
+				residue: 200,//红包剩余
+				enable: 1,//是否领导过，0为不可领
+				ajaxurl: 'javascript:;'//领红包AJAXurl
+			},
+			rolldata: ['a123123','b123123','c123123','d123123','e123123','f123123','g123123','h123123','ii123123','j123123'],//最新领到红包用户
+			btns:["www.baidu.com", "www.weibo.com", "www.google.com"]//我的红包，兑换记录，英雄榜URL
+		},
+		html = template('nodeData',data);
+		document.getElementById('wrap').innerHTML = html;
+		WS.base.url = {
+			exchangeurl:"http://www.baidu.com",//这里放兑换专区面URL
+			exiturl: "http://www.weibo.com"//这里放退出应用URL
+		}
+	</script>
+</body>
+</html>

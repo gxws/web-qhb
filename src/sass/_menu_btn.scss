@@ -1,0 +1,31 @@
+@import 'mixin';
+.menu{
+	@include bs(1230,45);
+	@include ps(0,50);
+	.menu-btn{
+		display:inline-block;
+		@include bs(90,45);
+		margin-left:10px;
+		@include bg('menu_btn_bg','png');
+		&.back{
+			@include bp(0,0);
+		}
+		&.home{
+			@include bp(-100,0);
+		}
+		&.index{
+			@include bp(-200,0);
+		}
+		&:focus{
+			&.back{
+				@include bp(0,-45);
+			}
+			&.home{
+				@include bp(-100,-45);
+			}
+			&.index{
+				@include bp(-200,-45);
+			}
+		}
+	}
+}

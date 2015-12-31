@@ -1,0 +1,112 @@
+@import 'mixin';
+
+.btn{
+	text-align:center;
+	display:inline-block;
+  padding:0 17px;
+  color:red;
+  @include fs(30);
+  span{
+  	height:65px;
+		line-height:60px;
+		display:block;
+		position:relative;
+  }
+  &.btn-xs{
+  	padding:0;
+  	color:#000;
+  	@include fs(22);
+  	span{
+  		width:140px;
+  		line-height:65px;
+			@include bg('btn_xs','png');
+  	}
+    &.disable{
+      span{
+        line-height:63px;
+        @include bg('btn_xs_disable2','png',0, -1);
+      }
+    }
+  }
+  &.btn-sm{
+  	span{
+  		width:186px;
+  		@include bg('btn_sm','png');
+  	}
+  	&.text{
+  		span{
+  			&:before{
+					content:"";
+					display:block;
+					width:100%;
+					height:100%;
+					@include bg('btn_text','png');
+					@include ps(0,0);
+				}
+  		}
+  	}
+  	&.myhb{
+  		span{
+  			&:before{
+  				@include bp(0,0);
+  			}
+  		}
+  	}
+  	&.dhjl{
+  		span{
+  			&:before{
+  				@include bp(-186,0);
+  			}
+  		}
+  	}
+  	&.yxb{
+  		span{
+  			&:before{
+  				@include bp(-372,0);
+  			}
+  		}
+  	}
+  }
+  &.btn-md{
+  	span{
+  		width:236px;
+  		@include bg('btn_md','png');
+  	}
+  }
+  &.btn-lg{
+  	span{
+  		width:276px;
+  		@include bg('btn_lg','png');
+  	}
+  }
+  &:focus{
+  	text-decoration:none;
+  	span{
+  		@include bp(0,-65);
+  	}
+  	@include tColor();
+  	&.text{
+  		&.myhb{
+	  		span{
+	  			&:before{
+	  				@include bp(0,-65);
+	  			}
+	  		}
+	  	}
+	  	&.dhjl{
+	  		span{
+	  			&:before{
+	  				@include bp(-186,-65);
+	  			}
+	  		}
+	  	}
+	  	&.yxb{
+	  		span{
+	  			&:before{
+	  				@include bp(-372,-65);
+	  			}
+	  		}
+	  	}
+  	}
+  }
+}

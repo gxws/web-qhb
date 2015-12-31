@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>QHB-6-英雄榜</title>
+	<!-- <link rel="stylesheet" href="../../public/css/public.min.css">
+	<link rel="stylesheet" href="../static/css/base_HD.min.css"> -->
+	<link rel="stylesheet" href="../static/css/base_HD.mod.css">
+</head>
+<body >
+	<div id="wrap" class="pa wrap bg-yxb">
+		<script id="nodeData" type="text/html">
+			<div class="pa menu tr">
+				{{each menuurl as v i}}
+					<a href="{{v}}" class="menu-btn {{if i==0}}back{{else if i==1}}home{{else}}index{{/if}}"></a>
+				{{/each}}
+			</div>
+			<a id="prev" href="javascript:;" class="pa pg sc md middle jilu prev"></a>
+			<table class="pa yxb_table">
+				<thead>
+					<tr>
+						<th>名次</th>
+						<th>机顶盒号</th>
+						<th>姓名</th>
+						<th>红包数</th>
+					</tr>
+				</thead>
+				<tbody id="yxb_bx">
+				</tbody>
+			</table>
+			<div id="jilu_bx" class="pa jilu_bx"></div>
+			<a id="next" href="javascript:;" class="pa pg sc md middle jilu next"></a>
+			<a href="#" class="pa hbwf tc"></a>
+			<div id="pgnb" class="pa pgnb">
+				<em class="pa curr"></em>/
+				<em class="pa total"></em>
+			</div>
+		</script>
+	</div>
+	<script id="yxb" type="html/text">
+		{{each list as v i}}
+			{{if i <= 1*row-1}}
+				<tr class="tc {{if v.ranking<=3}}red{{/if}}">
+					<td>{{v.ranking}}</td>
+					<td>{{v.boxid}}</td>
+					<td>{{v.name}}</td>
+					<td>{{v.quantity}}</td>
+				</tr>
+			{{/if}}
+		{{/each}}
+	</script>
+	<!-- <script src="../../public/js/jquery.min.js"></script>
+	<script src="../../public/js/jquery.x.min.js"></script>
+	<script src="../../public/js/template.js"></script>
+	<script src="../static/js/base_HD.js"></script>
+	<script src="../static/js/base_HD_Ajax.js"></script> -->
+	<script src="../static/js/base_HD.mod.js"></script>
+	<script>
+		var data = {
+				menuurl: ['#', '#', '#'],//菜单按钮URL,按顺序输出数组,
+				recommendimg: [
+					{
+						src: "../static/images/pic_1.jpg",
+						url: "baidu.com"
+					},
+					{
+						src: "../static/images/pic_2.jpg",
+						url: "google.com"
+					},
+					{
+						src: "../static/images/pic_3.jpg",
+						url: "weibo.com"
+					}
+				],
+				list:[
+					{
+						ranking: 1,
+						boxid:"4568****455",
+						name:"*张三",
+						quantity: 30
+					},
+					{
+						ranking: 2,
+						boxid:"4568****455",
+						name:"*李四",
+						quantity: 25
+					},
+					{
+						ranking: 3,
+						boxid:"4568****455",
+						name:"*五三",
+						quantity: 20
+					},
+					{
+						ranking: 4,
+						boxid:"4568****455",
+						name:"*张三",
+						quantity: 17
+					},
+					{
+						ranking: 5,
+						boxid:"4568****455",
+						name:"*李四",
+						quantity: 16
+					},
+					{
+						ranking: 6,
+						boxid:"4568****455",
+						name:"*五三",
+						quantity: 15
+					},
+					{
+						ranking: 7,
+						boxid:"4568****455",
+						name:"*张三",
+						quantity: 14
+					},
+					{
+						ranking: 8,
+						boxid:"4568****455",
+						name:"*李四",
+						quantity: 13
+					},
+					{
+						ranking: 9,
+						boxid:"4568****455",
+						name:"*五三",
+						quantity: 12
+					},
+					{
+						ranking: 10,
+						boxid:"4568****455",
+						name:"*张三",
+						quantity: 11
+					},
+					{
+						ranking: 11,
+						boxid:"4568****455",
+						name:"*李四",
+						quantity: 10
+					},
+					{
+						ranking: 12,
+						boxid:"4568****455",
+						name:"*五三",
+						quantity: 9
+					}
+				],
+			},
+			html = template('nodeData',data);
+		document.getElementById('wrap').innerHTML = html;
+		$.pagination({
+			pagnbId:"pgnb",
+			templateId: "yxb",//模板ID
+			containerId: "yxb_bx",//容器ID
+			//size: 4,//显示数量
+			//total: 15,//总记录数
+			row: 8,//行数
+			span:1,//每行个数
+			//extra: 8,
+			//other: true,
+			items: data.list //数据
+		});
+	</script>
+</body>
+</html>
