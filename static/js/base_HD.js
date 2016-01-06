@@ -44,14 +44,14 @@
 				if(success==1){
 					dd = {
 						date: data.date,
-						url: base.url.exchangeurl
+						url: data.exchangeurl
 					};
 					node = '<div class="pa date">（请于{{date}}前使用）</div>' + '<div class="pa btn_bx tc"><a href={{url}} class="btn btn-sm"><span>立即兑换</span></a></div>';
 				}else if(success==2){
 					dd = {
 						money: data.money,
 						date: data.date,
-						url: base.url.exchangeurl
+						url: data.exchangeurl
 					};
 					node = '<div class="pa text">{{money}}</div>' + '<div class="pa date money">（请于{{date}}前使用）</div>' + '<div class="pa btn_bx tc"><a href={{url}} class="btn btn-sm"><span>立即兑换</span></a></div>';
 				}else if (success==3){
@@ -59,7 +59,7 @@
 						title: data.title,
 						perception: data.perception,
 						spurl: data.spurl,
-						exchangeurl: base.url.exchangeurl
+						exchangeurl: data.exchangeurl
 					};
 					node = '<div class="pa sptitle tc">{{title}}</div>' +
 						'<div class="pa success-info tc">已经进入您的口袋啦！体验时间{{perception}}天。</div>' +

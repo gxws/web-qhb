@@ -20,7 +20,7 @@
 			<div class="pa time_limit">包月价格：{{price}}元/{{period}}</div>
 			<div class="pa btn_bx zqjs">
 				<a href="javascript:;" data-ajax="{{ajaxurl}}" class="btn btn-sm J_qing"><span>立即兑换</span></a>
-				{{if vediourl}}
+				{{if vediourl && vediourl!=''}}
 					<a href="{{vediourl}}" class="btn btn-lg"><span>观看专区视频介绍</span></a>
 				{{/if}}
 			</div>
@@ -58,7 +58,7 @@
 				period: "月", //y年，m月，d天，w周
 				ajaxurl: "javascript:;",//立即兑换ajaxrul
 				cont: "芒果TV是由湖南快乐阳光互动娱乐传媒有限公司负责具体运营的湖南广播电视台旗下唯一互联网视频供应平台，同时也是以视听互动为核心，融网络特色与电视特色于一体，面向电脑、手机、平板、电视机，实现“多屏合一”独播、跨屏、自制的新媒体视听综合传播服务平台。“芒果TV”呼号于2008年正式启用。芒果TV主要播放芒果台钻石独播剧场电视剧和其他综艺节目。芒果TV是由湖南快乐阳光互动娱乐传媒有限公司负责具体运营的湖南广播电视台旗下唯一互联网视频供应平台，面向电脑、手机、平板、电视机，实现“多屏合一”独播、跨屏、自制的新媒体视听综合传播服务平台。",
-				//vediourl: "www.baidu.com"
+				vediourl: ""
 
 			},
 			html = template('nodeData',data);
