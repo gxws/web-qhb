@@ -30,17 +30,54 @@
 		// 	}
 		// });
 	}
+	/**
+	 * [confirm description]
+	 * @param  {[string]} css  [样式名]
+	 * @param  {[object]} data [渲染数据]
+	 * @param  {[string]} node [dom]
+	 * @return {[null]}
+	 */
+	base.confirm = function(css,data,node){
+		var $modal = $('#modal'),
+				render = template.compile(node);
+		$modal.html(render(data)).addClass('show '+ css);
+		var $btn = $modal.find('.btn');
+		if($btn.size()>1){
+			$btn.on('keydown',function(e){
+				var $this = $(this),
+						index = $this.index(),
+						key = index==0 ? 39 : 37;
+				if((e.keyCode!=key) && (e.keyCode!=13)) return false;
+			});
+		}else{
+			$btn.on('keydown',function(e){
+				if(e.keyCode!=13) return false;
+			});
+		}
+		$btn.eq(0).focus();
+		var $close = $modal.find('.J_close'),
+				$qing = $('.J_qing');
+		$close.size() && $close.on('click', function(){
+			$modal.removeClass('show fail');
+			$qing.size() && $('.J_qing').focus();
+		});
+	}
 	init.p142 = function(){
-		var active = 0;
+		var active = 0,
+				status = base.exchangeData;
+		base.node = status && status.success == 3 ? '<div class="pa sptitle tc">{{title}}</div>' +
+			 			'<div class="pa success-info tc">已经进入您的口袋啦！体验时间{{perception}}天。</div>' +
+			 			'<div class="pa btn_bx tc"><a href="{{spurl}}" class="btn btn-md"><span>去观看节目</span></a><a href="{{exchangeurl}}" class="btn btn-md"><span>继续兑换红包</span></a></div>' : 
+			 			status && status.success == 4 ? '<div class="pa error">{{msg}}<p>若有疑问请拨打客服热线96335咨询。</p></div>' + '<div class="pa btn_bx tc"><a href="{{homeurl}}" class="btn btn-sm"><span>确定</span></a></div>' : '';
+		base.css = status && status.success == 3 ? 'success' : status && status.success == 4 ? 'fail' : '';
+		status && status.success && base.confirm(base.css, base.exchangeData, base.node);
 		$doc.on('click','.J_qing', function(){
-			var url = $(this).attr('data-ajax'),
-					$modal = $('#modal');
-			base.qiAnghb(url,function(data){
+			var url = $(this).attr('data-ajax');
+			$.getJSON(url, function(data){
 				var success = data.success,
-						node = '',
-						css = success ==1 ? 'experience' : success==2 ? 'money' : success==3 ? 'success' : success==4 ? 'fail' : 'miss',
-						dd = {},
-				 		render = null;
+						css     = success ==1 ? 'experience' : success==2 ? 'money' : success==3 ? 'success' : success==4 ? 'fail' : 'miss',
+						dd      = {},
+						node    = '';
 				if(success==1){
 					dd = {
 						date: data.date,
@@ -54,51 +91,13 @@
 						url: data.exchangeurl
 					};
 					node = '<div class="pa text">{{money}}</div>' + '<div class="pa date money">（请于{{date}}前使用）</div>' + '<div class="pa btn_bx tc"><a href={{url}} class="btn btn-sm"><span>立即兑换</span></a></div>';
-				}else if (success==3){
-					dd = {
-						title: data.title,
-						perception: data.perception,
-						spurl: data.spurl,
-						exchangeurl: data.exchangeurl
-					};
-					node = '<div class="pa sptitle tc">{{title}}</div>' +
-						'<div class="pa success-info tc">已经进入您的口袋啦！体验时间{{perception}}天。</div>' +
-						'<div class="pa btn_bx tc"><a href="{{spurl}}" class="btn btn-md"><span>去观看节目</span></a><a href={{exchangeurl}} class="btn btn-md"><span>继续兑换红包</span></a></div>';
-				}else if(success==4){
-					dd = {
-						msg: data.errormsg,
-						url: base.url.homeurl
-					};
-					node = '<div class="pa error">{{msg}}<p>若有疑问请拨打客服热线96335咨询。</p></div>' + '<div class="pa btn_bx tc"><a href="{{url}}" class="btn btn-sm"><span>确定</span></a></div>'
-				}
-				else{
-					dd = {
-						url: base.url.exiturl
-					};
-					node = '<div class="pa btn_bx tc"><a href="javascript:;" class="btn btn-lg"><span>没关系，再领一次</span></a><a href={{url}} class="btn btn-sm"><span>黯然离开</span></a></div>';
-				}
-				render = template.compile(node);
-				$('#modal').html(render(dd));
-				$modal.addClass('show '+ css);
-				var $btn = $modal.find('.btn');
-				if($btn.size()>1){
-					$btn.on('keydown',function(e){
-						var $this = $(this),
-								index = $this.index(),
-								key = index==0 ? 39 : 37;
-						if((e.keyCode!=key) && (e.keyCode!=13)) return false;
-					});
 				}else{
-					$btn.on('keydown',function(e){
-						if(e.keyCode!=13) return false;
-					});
+					dd = {
+						url: data.exiturl
+					};
+					node = '<div class="pa btn_bx tc"><a href="javascript:;" class="btn btn-lg J_close"><span>没关系，再领一次</span></a><a href={{url}} class="btn btn-sm"><span>黯然离开</span></a></div>';
 				}
-				$btn.eq(0).focus();
-				var $lg = $modal.find('.btn-lg');
-				$lg.size() && $lg.on('click', function(){
-					$modal.removeClass('show fail');
-					$('.J_qing').focus();
-				});
+				base.confirm(css,dd,node);
 			});
 		}).on('keydown', '#recommend', function(e){
 			var	$bx     = $('#recommend_bx'),

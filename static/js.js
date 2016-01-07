@@ -7,7 +7,7 @@ return {
 			'{static}/public/js/template.js',
 			'{static}/web-qhb/static/js/jquery.min.js',
 			'{static}/web-qhb/static/js/base_HD.min.js',
-			'{static}/web-qhb/static/js/base_HD_Ajax.min.js'
+			//'{static}/web-qhb/static/js/base_HD_Ajax.min.js'
 		]
 		/* end 基础模块 */
 	}
