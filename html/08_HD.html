@@ -5,7 +5,7 @@
 	<title>QHB-7-兑换专区-1</title>
 	<!-- <link rel="stylesheet" href="../../public/css/public.min.css">
 	<link rel="stylesheet" href="../static/css/base_HD.min.css"> -->
-	<link rel="stylesheet" href="http://10.1.15.50:8000/static/web-qhb/static/css/base_HD.mod.css">
+	<link rel="stylesheet" href="../static/css/base_HD.mod.css">
 </head>
 <body >
 	<div id="wrap" class="pa wrap bg-exchange">
@@ -28,13 +28,16 @@
 				</div>
 				<div id="quan_bx_before" class="pa quan_bx"></div>
 			</div>
-			<a id="prev" href="javascript:;" class="pa pg lg bottom prev"></a>
+			<!-- <a id="prev" href="javascript:;" class="pa pg lg bottom prev"></a> -->
 			<div id="quan_bx_after" class="pa quan_bx sc"></div>
-			<a id="next" href="javascript:;" class="pa pg lg bottom next"></a>
+			<!-- <a id="next" href="javascript:;" class="pa pg lg bottom next"></a> -->
 			<a href="#" class="pa hbwf org tc"></a>
-			<div id="pgnb" class="pa pgnb">
+			<!-- <div id="pgnb" class="pa pgnb">
 				<em class="pa curr"></em>/
 				<em class="pa total"></em>
+			</div> -->
+			<div class="pa scroll_bg exchange">
+				<div class="pa scroll_bar exchange"></div>
 			</div>
 			<div id="modal" class="pa modal"></div>
 		</script>
@@ -55,12 +58,13 @@
 			{{/if}}
 		{{/each}}
 	</script>
-	<!-- <script src="../../public/js/jquery.min.js"></script>
+	<script src="../../public/js/jquery.min.js"></script>
 	<script src="../../public/js/jquery.x.min.js"></script>
 	<script src="../../public/js/template.js"></script>
 	<script src="../static/js/base_HD.js"></script>
-	<script src="../static/js/base_HD_Ajax.js"></script> -->
-	<script src="http://10.1.15.50:8000/static/web-qhb/static/js/base_HD.mod.js"></script>
+	<script src="../static/js/base_HD_Ajax.js"></script>
+	<script src="../static/js/jquery.j.js"></script>
+	<!-- <script src="../static/js/base_HD.mod.js"></script> -->
 	<script>
 		var data = {
 				menuurl: ['#', '#', '#'],//菜单按钮URL,按顺序输出数组,
@@ -230,21 +234,25 @@
 		document.getElementById('wrap').innerHTML = html;
 		var quanhtml = template('quan',data);
 		document.getElementById('quan_bx_before').innerHTML = quanhtml;
-		$.pagination({
-			pagnbId:"pgnb",
+		$.pgae({
+			//pagnbId:"pgnb",
 			templateId: "quan",//模板ID
 			containerId: "quan_bx_after",//容器ID
-			//curr: 1,//当前页码
+			curr: 1,//当前页码
 			size: 4,//显示数量
 			//total: 15,//总记录数
 			row: 3,//每行个数
 			span:4,
 			extra: 8,//额外数量
 			other: true,//开启其他模式
-			items: data.list //数据
+			items: data.list,//数据
+			beforeid : 'quan_bx_before',
+			afterid : 'quan_bx_after',
+			topH: 5,
+			mg:-4
 		});
 		WS.base.exchangeData = {
-			// success: 4,
+			// success: 3,
 			// title: '芒果TV',
 			// perception: 30,
 			// spurl: 'www.baidu.com',

@@ -694,4 +694,67 @@
   text-indent: 52px;
 }
 
+.scroll_bg:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 100%;
+}
+.scroll_bg.exchange {
+  width: 30px;
+  height: 477px;
+  left: 1200px;
+  top: 153px;
+  background: url(../images/scroll_bg.jpg) 0px 0px no-repeat;
+}
+.scroll_bg.exchange:after {
+  width: 30px;
+  height: 13px;
+  background: url(../images/scroll_bg.jpg) 0px -707px no-repeat;
+}
+.scroll_bg.hb {
+  left: 1200px;
+  top: 267px;
+  background: url(../images/scroll_bg2.jpg) 0px 0px no-repeat;
+  width: 30px;
+  height: 354px;
+}
+.scroll_bg.hb:after {
+  width: 30px;
+  height: 13px;
+  background: url(../images/scroll_bg2.jpg) 0px -707px no-repeat;
+}
+.scroll_bg .scroll_bar:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 100%;
+  z-index: 10;
+}
+.scroll_bg .scroll_bar.exchange {
+  width: 20px;
+  left: 5px;
+  top: 6px;
+  background: url(../images/scroll_bar.jpg) 0px 0px no-repeat;
+}
+.scroll_bg .scroll_bar.exchange:after {
+  width: 20px;
+  height: 13px;
+  background: url(../images/scroll_bar.jpg) 0px -707px no-repeat;
+  left: 0;
+}
+.scroll_bg .scroll_bar.hb {
+  width: 20px;
+  left: 5px;
+  top: 5px;
+  background: url(../images/scroll_bar2.jpg) 0px 0px no-repeat;
+}
+.scroll_bg .scroll_bar.hb:after {
+  width: 20px;
+  height: 13px;
+  background: url(../images/scroll_bar2.jpg) 0px -707px no-repeat;
+  left: 0;
+}
+
 /*# sourceMappingURL=base_HD.css.map */

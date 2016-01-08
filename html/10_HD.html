@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>QHB-4-兑换记录</title>
+	<!-- <link rel="stylesheet" href="../../public/css/public.min.css">
+	<link rel="stylesheet" href="../static/css/base_HD.min.css"> -->
+	<link rel="stylesheet" href="../static/css/base_HD.mod.css">
+</head>
+<body >
+	<div id="wrap" class="pa wrap bg-jilu">
+		<script id="nodeData" type="text/html">
+			<div class="pa menu tr">
+				{{each menuurl as v i}}
+					<a href="{{v}}" class="menu-btn {{if i==0}}back{{else if i==1}}home{{else}}index{{/if}}"></a>
+				{{/each}}
+			</div>
+			<div id="jilu_bx" class="pa jilu_bx"></div>
+			<div class="pa scroll_bg hb">
+				<div class="pa scroll_bar hb"></div>
+			</div>
+			<a href="#" class="pa hbwf tc"></a>
+		</script>
+	</div>
+	<script id="jilu" type="html/text">
+		{{each list as v i}}
+			{{if i <= 5*row-1}}
+				<div class="jilu">
+					<img src="{{v.imgsrc}}" alt="" class="pa">
+					<div class="pa title tc">{{v.title}}</div>
+					<div class="pa tc expire {{if v.expire>3}}red{{else if v.expire>0&&v.expire<4}}org{{else}}gray{{/if}}">还剩{{v.expire}}天</div>
+				</div>
+			{{/if}}
+		{{/each}}
+	</script>
+	<!-- <script src="../../public/js/jquery.min.js"></script>
+	<script src="../../public/js/jquery.x.min.js"></script>
+	<script src="../../public/js/template.js"></script>
+	<script src="../static/js/base_HD.js"></script>
+	<script src="../static/js/base_HD_Ajax.js"></script> -->
+	<script src="../static/js/base_HD.mod.js"></script>
+	<script>
+		var data = {
+				menuurl: ['#', '#', '#'],//菜单按钮URL,按顺序输出数组,
+				recommendimg: [
+					{
+						src: "../static/images/pic_1.jpg",
+						url: "baidu.com"
+					},
+					{
+						src: "../static/images/pic_2.jpg",
+						url: "google.com"
+					},
+					{
+						src: "../static/images/pic_3.jpg",
+						url: "weibo.com"
+					}
+				],
+				list:[
+					{
+						imgsrc:"../static/images/icon_mgtv.jpg",
+						title:"芒果芒果芒果1",
+						expire: 30
+					},
+					{
+						imgsrc:"../static/images/icon_mgtv.jpg",
+						title:"芒果芒果芒果2",
+						expire: 3
+					},
+					{
+						imgsrc:"../static/images/icon_qz.jpg",
+						title:"芒果芒果芒果3",
+						expire: 0
+					},
+					{
+						imgsrc:"../static/images/icon_yx.jpg",
+						title:"芒果芒果芒果4",
+						expire: 10
+					},
+					{
+						imgsrc:"../static/images/icon_mgtv.jpg",
+						title:"芒果芒果芒果5",
+						expire: 30
+					},
+					{
+						imgsrc:"../static/images/icon_mgtv.jpg",
+						title:"芒果芒果芒果6",
+						expire: 3
+					},
+					{
+						imgsrc:"../static/images/icon_qz.jpg",
+						title:"芒果芒果芒果7",
+						expire: 11
+					},
+					{
+						imgsrc:"../static/images/icon_qz.jpg",
+						title:"芒果芒果芒果8",
+						expire: 2
+					},
+					{
+						imgsrc:"../static/images/icon_yx.jpg",
+						title:"芒果芒果芒果9",
+						expire: 5
+					},
+					{
+						imgsrc:"../static/images/icon_mgtv.jpg",
+						title:"芒果芒果芒果10",
+						expire: 0
+					},
+					{
+						imgsrc:"../static/images/icon_qz.jpg",
+						title:"芒果芒果芒果11",
+						expire: 3
+					},
+					{
+						imgsrc:"../static/images/icon_qz.jpg",
+						title:"芒果芒果芒果12",
+						expire: 0
+					},
+					{
+						imgsrc:"../static/images/icon_yx.jpg",
+						title:"芒果芒果芒果13",
+						expire: 3
+					},
+				],
+			},
+			html = template('nodeData',data);
+		document.getElementById('wrap').innerHTML = html;
+		$.pgae({
+			//pagnbId:"pgnb",
+			templateId: "jilu",//模板ID
+			containerId: "jilu_bx",//容器ID
+			//size: 4,//显示数量
+			//total: 15,//总记录数
+			row: 2,//行数
+			span:5,//每行个数
+			//extra: 8,
+			//other: true,
+			items: data.list, //数据
+			topH: 5,
+			mg:-4
+		});
+	</script>
+</body>
+</html>

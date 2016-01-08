@@ -92,6 +92,106 @@
           $next[pages === 1 || param.curr === pages ? 'hide' : 'show']();
 				}
 				return loadData(1);
+			},
+			pgae: function(options){
+				var defaults = {
+							//pagnbId: "",//翻页按钮组ID
+							templateId: "",//模板ID
+							containerId: "",//容器ID
+							prev: "prev",//上一页
+							next: "next",//下一页
+							curr: 1,//当前页码
+							//size: 0//显示数量
+							//total: 0,//总记录数
+							row: 1,//行数
+							span: 4, //每行个数
+							extra: 0,//额外个数
+							other: false,
+							items: [], //数据
+							beforeid : '',
+							afterid: '',
+							topH: 0,
+							mg:0
+						},
+						param = defaults;
+				$.extend(param,options);
+				var itemslen = param.items.length;
+				param.total = param.total || itemslen;//计算总数
+				param.size = param.row*param.span;//计算每页显示个数
+				if(!param.templateId || !param.containerId || itemslen===0) return;
+				var start = 0,
+						pages = Math.ceil((param.total+param.extra) / (param.size)),
+						
+        zs=0,
+        $scroll= $('.scroll_bar'),
+
+        height = param.curr/pages*100;
+
+        // $scroll.height(param.curr/pages*100-13);
+        $scroll.css('height',height+'%')
+        var he = $scroll.height() + param.mg,
+        		topH = param.topH;
+        		
+        $scroll.height(he)
+        var paging = function(nb,hig){
+		        	param.curr+=nb;
+		          loadData(param.row);
+		          topH += hig;
+		          $scroll.css('top',topH);
+		        };
+				var loadData = function(row){
+					if(param.other===true){
+						if(param.curr === 1) { //设置起始位置
+	            start = 0;
+	            $('#recommend_bx').show();
+	            $('#quan_bx_after').hide();
+	          }else if(param.curr === 2){
+	          	$('#recommend_bx').hide();
+	            $('#quan_bx_after').show();
+	            start = param.span;
+	          }else{
+	          	start = zs;
+	          }
+	          zs = start + param.span*row;
+					}else{
+						if(param.curr === 1){
+							start = 0;
+						}else{
+							start = (param.curr-1) * param.size
+						}
+						zs = start + param.size;
+					}
+          var data = {
+          	list: param.items.slice(start, zs),
+          	row: param.row
+          },
+          html = template(param.templateId, data);
+          $('#'+ param.containerId).html(html);
+          var $quianBtn = null;
+          if(param.other===true){
+          	if(param.curr === 1){
+							$quianBtn = $('#' + param.beforeid).find('a');
+
+	          }else{
+	          	$quianBtn = $('#'+ param.afterid).find('a');
+	          }
+          }else{
+          	$quianBtn = $('#' + param.containerId ).find('a');
+          }
+          $quianBtn.on('keydown', function(e){
+          	var _index = $(this).parent().index();
+          	if(param.other===true && e.keyCode==40 && param.curr === 1){
+          		paging(1,he);
+          	}else{
+          		if(e.keyCode==38 && _index <= (param.span-1) && param.curr > 1){
+				        			paging(-1,-he);
+	          	}else if(e.keyCode==40 && _index >= param.span*(param.row - 1) && param.curr < pages){
+	          			paging(1,he);
+	          	}
+          	}
+          });
+				}
+				return loadData(1);
 			}
 		});
 		return $;

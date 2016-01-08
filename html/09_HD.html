@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>QHB-5-我的红包</title>
+	<!-- <link rel="stylesheet" href="../../public/css/public.min.css">
+	<link rel="stylesheet" href="../static/css/base_HD.min.css"> -->
+	<link rel="stylesheet" href="../static/css/base_HD.mod.css">
+</head>
+<body >
+	<div id="wrap" class="pa wrap bg-myhongbao">
+		<script id="nodeData" type="text/html">
+			<div class="pa menu tr">
+				{{each menuurl as v i}}
+					<a href="{{v}}" class="menu-btn {{if i==0}}back{{else if i==1}}home{{else}}index{{/if}}"></a>
+				{{/each}}
+			</div>
+			<div class="pa hb_residue">可用红包：{{hbresidue}}个</div>
+			<!-- <a id="prev" href="javascript:;" class="pa pg sc lg middle hb prev"></a> -->
+			<div id="hb_bx" class="pa hb_bx"></div>
+			<!-- <a id="next" href="javascript:;" class="pa pg sc lg middle hb next"></a> -->
+			<div class="pa scroll_bg hb">
+				<div class="pa scroll_bar hb"></div>
+			</div>
+			<a href="#" class="pa hbwf tc"></a>
+			<!-- <div id="pgnb" class="pa pgnb">
+				<em class="pa curr"></em>/
+				<em class="pa total"></em>
+			</div> -->
+		</script>
+	</div>
+	<script id="hongbao" type="html/text">
+		{{each list as v i}}
+			{{if i <= 4*row-1}}
+				<div class="hb">
+					<div class="title tc">{{v.title}}</div>
+					{{if v.enable}}
+						<a href="{{v.exchangeurl}}" class="pa btn btn-xs"><span>立即兑换</span></a>
+					{{else}}
+						<span class="pa btn btn-xs disable"><span>已过期</span></span>
+					{{/if}}
+					<div class="pa expire tc">{{v.expire}}前使用</div>
+				</div>
+			{{/if}}
+		{{/each}}
+	</script>
+	<!-- <script src="../../public/js/jquery.min.js"></script>
+	<script src="../../public/js/jquery.x.min.js"></script>
+	<script src="../../public/js/template.js"></script>
+	<script src="../static/js/base_HD.js"></script>
+	<script src="../static/js/base_HD_Ajax.js"></script> -->
+	<script src="../static/js/base_HD.mod.js"></script>
+	<script>
+		var data = {
+				menuurl: ['#', '#', '#'],//菜单按钮URL,按顺序输出数组,
+				recommendimg: [
+					{
+						src: "../static/images/pic_1.jpg",
+						url: "baidu.com"
+					},
+					{
+						src: "../static/images/pic_2.jpg",
+						url: "google.com"
+					},
+					{
+						src: "../static/images/pic_3.jpg",
+						url: "weibo.com"
+					}
+				],
+				hbresidue:8,
+				list:[
+					{
+						enable: 1,
+						expire: "2015-11-11",
+						title:"芒果芒果芒果1",
+						exchangeurl:"www.baidu.com"
+					},
+					{
+						enable: 0,
+						expire: "2015-11-11",
+						title:"20元代金券2",
+						exchangeurl:"www.baidu.com"
+					},{
+						enable: 1,
+						expire: "2015-11-11",
+						title:"芒果芒果芒果3",
+						exchangeurl:"www.baidu.com"
+					},
+					{
+						enable: 1,
+						expire: "2015-11-11",
+						title:"芒果芒果芒果4",
+						exchangeurl:"www.baidu.com"
+					},
+					{
+						enable: 0,
+						expire: "2015-11-11",
+						title:"20元代金券果5",
+						exchangeurl:"www.baidu.com"
+					},{
+						enable: 1,
+						expire: "2015-11-11",
+						title:"芒果芒果芒果6",
+						exchangeurl:"www.baidu.com"
+					},
+					{
+						enable: 1,
+						expire: "2015-11-11",
+						title:"20元代金券果7",
+						exchangeurl:"www.baidu.com"
+					},
+					{
+						enable: 0,
+						expire: "2015-11-11",
+						title:"芒果芒果芒果8",
+						exchangeurl:"www.baidu.com"
+					},{
+						enable: 1,
+						expire: "2015-11-11",
+						title:"芒果芒果芒果9",
+						exchangeurl:"www.baidu.com"
+					},{
+						enable: 1,
+						expire: "2015-11-11",
+						title:"芒果芒果芒果9",
+						exchangeurl:"www.baidu.com"
+					},{
+						enable: 1,
+						expire: "2015-11-11",
+						title:"芒果芒果芒果9",
+						exchangeurl:"www.baidu.com"
+					},{
+						enable: 1,
+						expire: "2015-11-11",
+						title:"芒果芒果芒果9",
+						exchangeurl:"www.baidu.com"
+					},{
+						enable: 1,
+						expire: "2015-11-11",
+						title:"芒果芒果芒果9",
+						exchangeurl:"www.baidu.com"
+					},{
+						enable: 1,
+						expire: "2015-11-11",
+						title:"芒果芒果芒果9",
+						exchangeurl:"www.baidu.com"
+					},{
+						enable: 1,
+						expire: "2015-11-11",
+						title:"芒果芒果芒果9",
+						exchangeurl:"www.baidu.com"
+					},{
+						enable: 1,
+						expire: "2015-11-11",
+						title:"芒果芒果芒果9",
+						exchangeurl:"www.baidu.com"
+					},{
+						enable: 1,
+						expire: "2015-11-11",
+						title:"芒果芒果芒果9",
+						exchangeurl:"www.baidu.com"
+					},{
+						enable: 1,
+						expire: "2015-11-11",
+						title:"芒果芒果芒果9",
+						exchangeurl:"www.baidu.com"
+					},{
+						enable: 1,
+						expire: "2015-11-11",
+						title:"芒果芒果芒果9",
+						exchangeurl:"www.baidu.com"
+					},{
+						enable: 1,
+						expire: "2015-11-11",
+						title:"芒果芒果芒果9",
+						exchangeurl:"www.baidu.com"
+					},{
+						enable: 1,
+						expire: "2015-11-11",
+						title:"芒果芒果芒果9",
+						exchangeurl:"www.baidu.com"
+					},{
+						enable: 1,
+						expire: "2015-11-11",
+						title:"芒果芒果芒果9",
+						exchangeurl:"www.baidu.com"
+					},{
+						enable: 1,
+						expire: "2015-11-11",
+						title:"芒果芒果芒果9",
+						exchangeurl:"www.baidu.com"
+					},{
+						enable: 1,
+						expire: "2015-11-11",
+						title:"芒果芒果芒果9",
+						exchangeurl:"www.baidu.com"
+					},
+				],
+			},
+			html = template('nodeData',data);
+		document.getElementById('wrap').innerHTML = html;
+		$.pgae({
+			//pagnbId:"pgnb",
+			templateId: "hongbao",//模板ID
+			containerId: "hb_bx",//容器ID
+			//size: 4,//显示数量
+			//total: 15,//总记录数
+			row: 2,//每行个数
+			span:4,
+			//extra: 8,
+			//other: true,
+			items: data.list, //数据
+			topH: 5,
+			mg:-4
+		});
+	</script>
+</body>
+</html>

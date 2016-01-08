@@ -526,3 +526,60 @@
 		text-indent:52px;
 	}
 }
+.scroll_bg{
+	&:after{
+		content:"";
+		display:block;
+		position:absolute;
+		left:0;
+		top:100%;
+	}
+	&.exchange{
+		@include bs(30,477);
+		@include ps(1200,153);
+		@include bg('scroll_bg');
+		&:after{
+			@include bs(30,13);
+			@include bg('scroll_bg','jpg',0,-707);
+		}
+	}
+	&.hb{
+		@include ps(1200,267);
+		@include bg('scroll_bg2');
+		@include bs(30,354);
+		&:after{
+			@include bs(30,13);
+			@include bg('scroll_bg2','jpg',0,-707);
+		}
+	}
+	
+	.scroll_bar{
+		&:after{
+			content:"";
+			display:block;
+			position:absolute;
+			top:100%;
+			z-index:10;
+		}
+		&.exchange{
+			width:20px;
+			@include ps(5,6);
+			@include bg('scroll_bar');
+			&:after{
+				@include bs(20,13);
+				@include bg('scroll_bar','jpg',0,-707);
+				left:0;
+			}
+		}
+		&.hb{
+			width:20px;
+			@include ps(5,5);
+			@include bg('scroll_bar2');
+			&:after{
+				@include bs(20,13);
+				@include bg('scroll_bar2','jpg',0,-707);
+				left:0;
+			}
+		}
+	}
+}
