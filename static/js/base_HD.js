@@ -29,6 +29,7 @@
 		// 			break;
 		// 	}
 		// });
+		$('.J_focus').focus();
 	}
 	/**
 	 * [confirm description]
