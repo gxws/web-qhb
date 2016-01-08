@@ -17,7 +17,7 @@
 			</div>
 			<!-- <a id="recommend" href="#" class="pa recommend"></a> -->
 			<div id="recommend_bx" class="pa recommend_bx">
-				<a id="recommend" href="#" class="pa recommend"></a>
+				<a id="recommend" href="#" class="pa recommend J_focus"></a>
 				{{each recommendimg as v i}}
 					<div data-url={{v.url}} class="pa img_bx {{if i==0 }}middle{{else if i==1}}right{{else}}left{{/if}}" style="background:url({{v.src}}) 0 0 no-repeat;"></div>
 				{{/each}}
@@ -244,13 +244,13 @@
 			items: data.list //数据
 		});
 		WS.base.exchangeData = {
-			// success: 4,
-			// title: '芒果TV',
-			// perception: 30,
-			// spurl: 'www.baidu.com',
-			// exchangeurl: '#',
-			// msg: '错误提示错误',
-			// url: '02_HD.html'
+			success: 4,
+			title: '芒果TV',
+			perception: 30,
+			spurl: 'www.baidu.com',
+			exchangeurl: '#',
+			msg: '错误提示错误',
+			url: '02_HD.html'
 		}
 	</script>
 </body>

@@ -62,6 +62,12 @@
   width: 186px;
   background: url(../images/btn_sm.png) 0px 0px no-repeat;
 }
+.btn.btn-sm.disable {
+  color: #000;
+}
+.btn.btn-sm.disable span {
+  background: url(../images/btn_sm_disable.png) 0px 0px no-repeat;
+}
 .btn.btn-sm.text span:before {
   content: "";
   display: block;

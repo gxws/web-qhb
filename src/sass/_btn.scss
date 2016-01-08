@@ -33,6 +33,12 @@
   		width:186px;
   		@include bg('btn_sm','png');
   	}
+    &.disable{
+      color:#000;
+      span{
+        @include bg('btn_sm_disable','png');
+      }
+    }
   	&.text{
   		span{
   			&:before{
