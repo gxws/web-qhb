@@ -329,9 +329,10 @@
 			@include ps(7,0);
 			@include bg('quan_bg','png');
 		}
-		img{
+		.imgbx{
 			@include ps(20,16);
 			@include bs(60,60);
+			background:#fff;
 		}
 		.title{
 			position:absolute;
@@ -340,7 +341,7 @@
 			color:#fffabe;
 		}
 		.btn{
-			@include ps(21,83);
+			@include ps(21,75);
 		}
 		.info{
 			display:block;
@@ -487,7 +488,7 @@
 .icon-img{
 	@include bs(150,150);
 	@include ps(50,198);
-	@include bg('logo_md','png');
+	background:#fff;
 	img{
 		@include bs(150,150);
 	}

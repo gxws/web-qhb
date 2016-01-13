@@ -19,7 +19,7 @@
 			<div id="recommend_bx" class="pa recommend_bx">
 				<a id="recommend" href="#" class="pa recommend J_focus"></a>
 				{{each recommendimg as v i}}
-					<div data-url={{v.url}} class="pa img_bx {{if i==0 }}middle{{else if i==1}}right{{else}}left{{/if}}" style="background:url({{v.src}}) 0 0 no-repeat;"></div>
+					<div data-url={{v.url}} class="pa img_bx {{if i==0 }}middle{{else if i==1}}right{{else}}left{{/if}}"><img src="{{v.src}}" width="100%" height="100%"></div>
 				{{/each}}
 				<div class="pa roll_box tc">
 					<span class="active"></span>
@@ -43,7 +43,7 @@
 		{{each list as v i}}
 			{{if i <= 4*row-1}}
 				<div class="quan">
-					<img src="{{v.imgsrc}}" alt="" class="pa">
+					<div class="pa imgbx"><img src="{{v.imgsrc}}" alt="" width="100%" height="100%"></div>
 					<div class="pa title">{{v.title}}</div>
 					{{if v.enable&&v.residue>0}}
 						<a href="{{v.exchangeurl}}" class="pa btn btn-xs"><span>立即兑换</span></a>
@@ -70,11 +70,11 @@
 						url: "baidu.com"
 					},
 					{
-						src: "../static/images/pic_2.jpg",
+						src: "../static/images/focus_img.jpg",
 						url: "google.com"
 					},
 					{
-						src: "../static/images/pic_3.jpg",
+						src: "../static/images/focus_img.jpg",
 						url: "weibo.com"
 					}
 				],
@@ -82,7 +82,7 @@
 					{
 						residue:200,
 						enable: 1,
-						imgsrc:"../static/images/icon_mgtv.jpg",
+						imgsrc:"../static/images/logo_md.png",
 						title:"芒果芒果芒果1",
 						exchangeurl:"#",
 						prefectureurl:"www.weibo.com"
@@ -244,13 +244,13 @@
 			items: data.list //数据
 		});
 		WS.base.exchangeData = {
-			success: 4,
-			title: '芒果TV',
-			perception: 30,
-			spurl: 'www.baidu.com',
-			exchangeurl: '#',
-			msg: '错误提示错误',
-			url: '02_HD.html'
+			// success: 4,
+			// title: '芒果TV',
+			// perception: 30,
+			// spurl: 'www.baidu.com',
+			// exchangeurl: '#',
+			// msg: '错误提示错误',
+			// url: '02_HD.html'
 		}
 	</script>
 </body>

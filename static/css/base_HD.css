@@ -100,7 +100,7 @@
   text-decoration: none;
   color: #fff;
 }
-.btn:focus:before {
+.btn:focus:not(.btn-xs):before {
   position: absolute;
   display: block;
   content: "";
@@ -108,7 +108,7 @@
   top: -15px;
   background: url(../images/btn_outer_glow.png) 0px 0px no-repeat;
 }
-.btn:focus:after {
+.btn:focus:not(.btn-xs):after {
   position: absolute;
   display: block;
   content: "";
@@ -511,11 +511,12 @@
   top: 0px;
   background: url(../images/quan_bg.png) 0px 0px no-repeat;
 }
-.quan_bx .quan img {
+.quan_bx .quan .imgbx {
   left: 20px;
   top: 16px;
   width: 60px;
   height: 60px;
+  background: #fff;
 }
 .quan_bx .quan .title {
   position: absolute;
@@ -526,7 +527,7 @@
 }
 .quan_bx .quan .btn {
   left: 21px;
-  top: 83px;
+  top: 75px;
 }
 .quan_bx .quan .info {
   display: block;
@@ -692,7 +693,7 @@
   height: 150px;
   left: 50px;
   top: 198px;
-  background: url(../images/logo_md.png) 0px 0px no-repeat;
+  background: #fff;
 }
 .icon-img img {
   width: 150px;

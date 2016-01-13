@@ -20,13 +20,16 @@
 				<p>{{timedata.starttime}}&nbsp;至</p>
 				<p>{{timedata.endtime}}</p>
 			</div>
-			<div class="pa residue {{if residuedata.residue>0}}red{{else}}gray{{/if}}">本时段红包还剩<span>{{residuedata.residue}}</span>个</div>
+			<div class="pa residue {{if residuedata.residue>0}}red{{else if residuedata.residue==0}}gray{{else}}red{{/if}}">		{{if residuedata.residue!=-1}}本时段红包还剩<span>{{residuedata.residue}}</span>个{{/if}}
+			</div>
 			{{if residuedata.residue>0 && residuedata.enable}}
 				<a href="javascript:;" data-ajax={{residuedata.ajaxurl}} class="pa qing enable J_qing"></a>
-			{{else if residuedata.residue>0 }}
+			{{else if !residuedata.enable}}
 				<div class="pa qing end"></div>
-			{{else}}
+			{{else if residuedata.residue !=-1}}
 				<div class="pa qing null"></div>
+			{{else}}
+				<a href="javascript:;" data-ajax={{residuedata.ajaxurl}} class="pa qing enable J_qing"></a>
 			{{/if}}
 			<marquee id="roll" class="pa roll">
 				{{each rolldata as sp}}
@@ -56,7 +59,7 @@
 				endtime: "2015-12-13  12:00"//红包开始时间，结束时间
 			},
 			residuedata: {
-				residue: 200,//红包剩余
+				residue: -1,//红包剩余
 				enable: 1,//是否领导过，0为不可领
 				ajaxurl: '../static/js/ajax.json'//领红包AJAXurl
 			},

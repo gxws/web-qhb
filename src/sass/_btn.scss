@@ -89,23 +89,25 @@
   }
   &:focus{
   	text-decoration:none;
-    &:before{
-      position:absolute;
-      display:block;
-      content:"";
-      height:90px;
-      top:-15px;
-      @include bg('btn_outer_glow', 'png');
-    }
-    &:after{
-      position:absolute;
-      display:block;
-      content:"";
-      height:90px;
-      width:50px;
-      top:-15px;
-      z-index:-1;
-      @include bg('btn_outer_glow', 'png',-1230,0);
+    &:not(.btn-xs){
+      &:before{
+        position:absolute;
+        display:block;
+        content:"";
+        height:90px;
+        top:-15px;
+        @include bg('btn_outer_glow', 'png');
+      }
+      &:after{
+        position:absolute;
+        display:block;
+        content:"";
+        height:90px;
+        width:50px;
+        top:-15px;
+        z-index:-1;
+        @include bg('btn_outer_glow', 'png',-1230,0);
+      }
     }
     &.btn-sm{
        &:before{
