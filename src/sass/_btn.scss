@@ -5,6 +5,8 @@
 	display:inline-block;
   padding:0 17px;
   color:red;
+  position:relative;
+  z-index:2;
   @include fs(30);
   span{
   	height:65px;
@@ -87,6 +89,51 @@
   }
   &:focus{
   	text-decoration:none;
+    &:before{
+      position:absolute;
+      display:block;
+      content:"";
+      height:90px;
+      top:-15px;
+      @include bg('btn_outer_glow', 'png');
+    }
+    &:after{
+      position:absolute;
+      display:block;
+      content:"";
+      height:90px;
+      width:50px;
+      top:-15px;
+      z-index:-1;
+      @include bg('btn_outer_glow', 'png',-1230,0);
+    }
+    &.btn-sm{
+       &:before{
+        width:160px;
+        left:5px;
+       }
+       &:after{
+        left:165px;
+       }
+    }
+    &.btn-md{
+       &:before{
+        width:210px;
+        left:5px;
+       }
+       &:after{
+        left:215px;
+       }
+    }
+    &.btn-lg{
+       &:before{
+        width:252px;
+        left:5px;
+       }
+       &:after{
+        left:257px;
+       }
+    }
   	span{
   		@include bp(0,-65);
   	}

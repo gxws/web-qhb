@@ -403,9 +403,11 @@
 		@include bg('hb_bg','png', 13, 0);
 		padding:9px 13px;
 		.title{
-			padding:4px 46px;
+			padding-top:13px;
 			color:#be7d32;
+			width:154px;
 			@include fs(28);
+			@include ps(63,0);
 		}
 		.btn{
 			top:81px;
@@ -485,6 +487,10 @@
 .icon-img{
 	@include bs(150,150);
 	@include ps(50,198);
+	@include bg('logo_md','png');
+	img{
+		@include bs(150,150);
+	}
 }
 .prefecture_title{
 	@include fs(48);

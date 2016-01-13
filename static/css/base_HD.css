@@ -36,6 +36,8 @@
   display: inline-block;
   padding: 0 17px;
   color: red;
+  position: relative;
+  z-index: 2;
   font-size: 30px;
 }
 .btn span {
@@ -97,6 +99,45 @@
 .btn:focus {
   text-decoration: none;
   color: #fff;
+}
+.btn:focus:before {
+  position: absolute;
+  display: block;
+  content: "";
+  height: 90px;
+  top: -15px;
+  background: url(../images/btn_outer_glow.png) 0px 0px no-repeat;
+}
+.btn:focus:after {
+  position: absolute;
+  display: block;
+  content: "";
+  height: 90px;
+  width: 50px;
+  top: -15px;
+  z-index: -1;
+  background: url(../images/btn_outer_glow.png) -1230px 0px no-repeat;
+}
+.btn:focus.btn-sm:before {
+  width: 160px;
+  left: 5px;
+}
+.btn:focus.btn-sm:after {
+  left: 165px;
+}
+.btn:focus.btn-md:before {
+  width: 210px;
+  left: 5px;
+}
+.btn:focus.btn-md:after {
+  left: 215px;
+}
+.btn:focus.btn-lg:before {
+  width: 252px;
+  left: 5px;
+}
+.btn:focus.btn-lg:after {
+  left: 257px;
 }
 .btn:focus span {
   background-position: 0px -65px;
@@ -556,9 +597,12 @@
   padding: 9px 13px;
 }
 .hb_bx .hb .title {
-  padding: 4px 46px;
+  padding-top: 13px;
   color: #be7d32;
+  width: 154px;
   font-size: 28px;
+  left: 63px;
+  top: 0px;
 }
 .hb_bx .hb .btn {
   top: 81px;
@@ -648,6 +692,11 @@
   height: 150px;
   left: 50px;
   top: 198px;
+  background: url(../images/logo_md.png) 0px 0px no-repeat;
+}
+.icon-img img {
+  width: 150px;
+  height: 150px;
 }
 
 .prefecture_title {
