@@ -631,12 +631,13 @@
   background: url(../images/jilu_bg.png) 10px 0px no-repeat;
   padding: 20px 10px;
 }
-.jilu_bx .jilu img {
+.jilu_bx .jilu .imgbx {
   width: 60px;
   height: 60px;
   top: 18px;
   left: 50%;
   margin-left: -30px;
+  background: #fff;
 }
 .jilu_bx .jilu .title {
   width: 100%;

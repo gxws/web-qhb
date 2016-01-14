@@ -432,11 +432,12 @@
 		@include bs(204,170);
 		@include bg('jilu_bg','png', 10, 0);
 		padding:20px 10px;
-		img{
+		.imgbx{
 			@include bs(60,60);
 			top:18px;
 			left:50%;
 			margin-left:-30px;
+			background:#fff;
 		}
 		.title{
 			width:100%;
