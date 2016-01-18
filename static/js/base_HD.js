@@ -161,5 +161,5 @@
 	base.render = function(id,nodeID,data){
 		base.Obj(id).innerHTML= template(nodeID,data);
 	}
-	$.extend(base, $.loader(init));//将启动程序并入
+	//$.extend(base, $.loader(init));//将启动程序并入
 })(window)

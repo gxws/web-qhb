@@ -152,6 +152,26 @@
   background-position: -372px -65px;
 }
 
+.pa {
+  position: absolute;
+}
+
+.pr {
+  position: relative;
+}
+
+.tr {
+  text-align: right;
+}
+
+.tl {
+  text-align: left;
+}
+
+.tc {
+  text-align: center;
+}
+
 .wrap {
   width: 1280px;
   height: 720px;
@@ -600,9 +620,9 @@
 .hb_bx .hb .title {
   padding-top: 13px;
   color: #be7d32;
-  width: 154px;
+  width: 184px;
   font-size: 28px;
-  left: 63px;
+  left: 48px;
   top: 0px;
 }
 .hb_bx .hb .btn {

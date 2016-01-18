@@ -1,6 +1,11 @@
 @import 'mixin';
 @import 'menu_btn';
 @import 'btn';
+.pa{position:absolute;}
+.pr{position:relative;}
+.tr{text-align:right;}
+.tl{text-align:left;}
+.tc{text-align:center;}
 .wrap{
 	width:1280px;
 	height:720px;
@@ -406,9 +411,9 @@
 		.title{
 			padding-top:13px;
 			color:#be7d32;
-			width:154px;
+			width:184px;
 			@include fs(28);
-			@include ps(63,0);
+			@include ps(48,0);
 		}
 		.btn{
 			top:81px;
