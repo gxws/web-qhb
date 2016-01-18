@@ -36,7 +36,8 @@
 				<em class="pa curr"></em>/
 				<em class="pa total"></em>
 			</div>
-			<div id="modal" class="pa modal"></div>
+			<div class="pa modal fail"></div>
+			<div class="pa modal success"></div>
 		</script>
 	</div>
 	<script id="quan" type="html/text">
@@ -60,7 +61,7 @@
 	<script src="../../public/js/template.js"></script>
 	<script src="../static/js/base_HD.js"></script>
 	<script src="../static/js/base_HD_Ajax.js"></script> -->
-	<script src="http://10.1.15.50:8000/static/web-qhb/static/js/base_HD.mod.js"></script>
+	<!-- <script src="http://10.1.15.50:8000/static/web-qhb/static/js/base_HD.mod.js"></script> -->
 	<script>
 		var data = {
 				menuurl: ['#', '#', '#'],//菜单按钮URL,按顺序输出数组,
@@ -244,13 +245,13 @@
 			items: data.list //数据
 		});
 		WS.base.exchangeData = {
-			// success: 4,
-			// title: '芒果TV',
-			// perception: 30,
-			// spurl: 'www.baidu.com',
-			// exchangeurl: '#',
-			// msg: '错误提示错误',
-			// url: '02_HD.html'
+			success: 4,
+			title: '芒果TV',
+			perception: 30,
+			spurl: 'www.baidu.com',
+			exchangeurl: '#',
+			msg: '错误提示错误',
+			url: '02_HD.html'
 		}
 	</script>
 </body>

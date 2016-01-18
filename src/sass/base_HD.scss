@@ -136,20 +136,26 @@
 	}
 }
 .modal{
-	display:none;
-	@include bs(1280,720);
-	@include bg('alert_bg','png', 0, 0 , repeat);
+	//display:none;
+	@include bs(0,0);
+	@include bg('alert_bg2','png', 0, 0 , repeat);
 	@include ps(0,0);
 	z-index:10;
-	&.show{
-		display:block;
-	}
+	// &.show{
+	// 	display:block;
+	// }
 	&:before{
 		content:"";
 		display:block;
 		position:absolute;
-		@include bs(1280,720);
+		@include bs(0,0);
 		@include ps(0,0);
+	}
+	&.show{
+		@include bs(1280,720);
+		&:before{
+			@include bs(1280,720);
+		}
 	}
 	&.experience{
 		&:before{
@@ -207,6 +213,7 @@
 		@include fs(40);
 		color:#fff;
 	}
+	
 }
 .recommend{
 	display:block;
@@ -351,11 +358,11 @@
 		.info{
 			display:block;
 			@include fs(20);
-			color:#fff;
+			color:#fabea0;
 			border-bottom: 1px solid #fff;
 			@include ps(167,109);
 			&:focus{
-				color:#ffff00;
+				color:#00fafa;
 				border-bottom-color:#ffff00;
 			}
 		}

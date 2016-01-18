@@ -39,9 +39,9 @@
 	 * @return {[null]}
 	 */
 	base.confirm = function(css,data,node){
-		var $modal = $('#modal'),
+		var $modal = $('.modal.'+css),
 				render = template.compile(node);
-		$modal.html(render(data)).addClass('show '+ css);
+		$modal.html(render(data)).addClass('show');
 		var $btn = $modal.find('.btn');
 		if($btn.size()>1){
 			$btn.on('keydown',function(e){
@@ -59,7 +59,7 @@
 		var $close = $modal.find('.J_close'),
 				$qing = $('.J_qing');
 		$close.size() && $close.on('click', function(){
-			$modal.removeClass('show fail');
+			$modal.removeClass('show');
 			$qing.size() && $('.J_qing').focus();
 		});
 	}
@@ -161,5 +161,5 @@
 	base.render = function(id,nodeID,data){
 		base.Obj(id).innerHTML= template(nodeID,data);
 	}
-	//$.extend(base, $.loader(init));//将启动程序并入
+	$.extend(base, $.loader(init));//将启动程序并入
 })(window)

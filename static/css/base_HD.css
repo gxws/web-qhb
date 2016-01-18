@@ -320,25 +320,29 @@
 }
 
 .modal {
-  display: none;
-  width: 1280px;
-  height: 720px;
-  background: url(../images/alert_bg.png) 0px 0px repeat;
+  width: 0px;
+  height: 0px;
+  background: url(../images/alert_bg2.png) 0px 0px repeat;
   left: 0px;
   top: 0px;
   z-index: 10;
-}
-.modal.show {
-  display: block;
 }
 .modal:before {
   content: "";
   display: block;
   position: absolute;
-  width: 1280px;
-  height: 720px;
+  width: 0px;
+  height: 0px;
   left: 0px;
   top: 0px;
+}
+.modal.show {
+  width: 1280px;
+  height: 720px;
+}
+.modal.show:before {
+  width: 1280px;
+  height: 720px;
 }
 .modal.experience:before {
   background: url(../images/icon_experience.png) 259px 126px no-repeat;
@@ -552,13 +556,13 @@
 .quan_bx .quan .info {
   display: block;
   font-size: 20px;
-  color: #fff;
+  color: #fabea0;
   border-bottom: 1px solid #fff;
   left: 167px;
   top: 109px;
 }
 .quan_bx .quan .info:focus {
-  color: #ffff00;
+  color: #00fafa;
   border-bottom-color: #ffff00;
 }
 

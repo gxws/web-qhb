@@ -1,6 +1,6 @@
 //import $ from 'jquery'
 //import '../../public/js/jquery.x.min'
-import template from '../../public/js/template'
+import '../../public/js/template'
 import '../static/js/jquery.j'
 import '../static/js/base_HD'
 //import '../static/js/base_HD_Ajax'
