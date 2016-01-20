@@ -67,6 +67,17 @@
 		var active = 0,
 				status = base.exchangeData,
 				time = null;
+
+		if($('.J_qing').size()){
+			var _tag = 0,
+					p = 0,
+					$btt = $('.J_qing');
+			time = setInterval(function(){
+				p = _tag ? 0 : 1;
+				$btt.css('transform','scale(1.'+p+')');
+				_tag = p;
+			},200);
+		}
 		base.node = status && status.success == 3 ? '<div class="pa sptitle tc">{{title}}</div>' +
 			 			'<div class="pa success-info tc">已经进入您的口袋啦！体验时间{{perception}}天。</div>' +
 			 			'<div class="pa btn_bx tc"><a href="{{spurl}}" class="btn btn-md"><span>去观看节目</span></a><a href="{{exchangeurl}}" class="btn btn-md"><span>继续兑换红包</span></a></div>' : 

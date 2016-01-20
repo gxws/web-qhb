@@ -26,7 +26,7 @@
 			<div class="pa residue {{if residuedata.residue>0}}red{{else if residuedata.residue==0}}gray{{else}}red{{/if}}">		{{if residuedata.residue!=-1}}本时段红包还剩<span>{{residuedata.residue}}</span>个{{/if}}
 			</div>
 			{{if residuedata.residue>0 && residuedata.enable}}
-				<a href="javascript:;" data-ajax="{{residuedata.ajaxurl}}" class="pa qing enable J_qing"></a>
+				<a href="javascript:;" data-ajax="{{residuedata.ajaxurl}}" class="pa qing enable J_qing J_focus"></a>
 			{{else if !residuedata.enable}}
 				<div class="pa qing end"></div>
 			{{else if residuedata.residue !=-1}}
