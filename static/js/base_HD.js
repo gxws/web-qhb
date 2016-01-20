@@ -19,16 +19,16 @@
 			base = WS.base || (WS.base = {});	//接口程序
 
 	init.public = function(){
-		// $doc.on('keydown',function(e){
-		// 	switch (e.keyCode){
-		// 		case 48:
-		// 			loc.reload();
-		// 			break;
-		// 		case 57:
-		// 			loc.href = '../index.html';
-		// 			break;
-		// 	}
-		// });
+		$doc.on('keydown',function(e){
+			switch (e.keyCode){
+				// case 48:
+				// 	loc.reload();
+				// 	break;
+				// case 57:
+				// 	loc.href = '../index.html';
+				// 	break;
+			}
+		});
 		$('.J_focus').focus();
 	}
 	/**
@@ -65,7 +65,8 @@
 	}
 	init.p142 = function(){
 		var active = 0,
-				status = base.exchangeData;
+				status = base.exchangeData,
+				time = null;
 		base.node = status && status.success == 3 ? '<div class="pa sptitle tc">{{title}}</div>' +
 			 			'<div class="pa success-info tc">已经进入您的口袋啦！体验时间{{perception}}天。</div>' +
 			 			'<div class="pa btn_bx tc"><a href="{{spurl}}" class="btn btn-md"><span>去观看节目</span></a><a href="{{exchangeurl}}" class="btn btn-md"><span>继续兑换红包</span></a></div>' : 
@@ -141,6 +142,18 @@
 				if(active>2) active=0;
 				$span.eq(active).addClass('active');
 			}
+		}).on('focus','.J_qing', function() {
+			var _tag = 0,
+					p = 0,
+					$btt = $('.J_qing');
+			time = setInterval(function(){
+				p = _tag ? 0 : 1;
+				$btt.css('transform','scale(1.'+p+')');
+				_tag = p;
+			},200);
+		}).on('blur', '.J_qing', function(){
+			clearInterval(time);
+			$('.J_qing').css('transform','scale(1)');;
 		});
 	}
 	/**

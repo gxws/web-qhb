@@ -1,21 +1,24 @@
 import path from 'path'
 import webpack from 'webpack'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
-import devConfig from './webpack.dev.config'
+//import devConfig from './webpack.dev.config'
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
+  //devtool: 'cheap-module-eval-source-map',
   entry: {
     bundle : './src/main',
-    //jquery : ['jquery'],
+    //vendors : ['jquery','jqx','template','jqj'],
     //'webpack-hot-middleware/client?reload=true',
     //'./src/main'
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.css', '.scss'],
-    // alias: {
-    //   'react': pathToReact
-    // }
+    alias: {
+      'jquery': 'jquery',
+      'template': '../public/js/template',
+      'jqx': './static/js/jquery.x.min',
+      'jqj': './static/js/jquery.j',
+    }
   },
   output: {
     path: path.join(__dirname, 'static'),
@@ -72,15 +75,15 @@ module.exports = {
       disable: false,
       allChunks: true
     }),
-    //new webpack.optimize.CommonsChunkPlugin('jquery', 'js/jquery.js'),
+    //new webpack.optimize.CommonsChunkPlugin('vendors', 'js/vendors.js'),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
           warnings: false
       }
     }),
     new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery:'jquery'
+      // $: 'jquery',
+      // jQuery:'jquery'
     })
   ],
   externals: {

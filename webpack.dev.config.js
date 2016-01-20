@@ -66,8 +66,8 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),//热替换模块(非webpack-dev模式)
     new webpack.NoErrorsPlugin(),
     new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery:'jquery'
+      // $: 'jquery',
+      // jQuery:'jquery'
     })
   ],
   // externals: {

@@ -44,7 +44,9 @@ app.get("/09_HD", (req, res) => {
 app.get("/10_HD", (req, res) => {
   res.sendFile(__dirname + '/html/10_HD.html')
 })
-
+app.get("/ajax", (req, res) => {
+  res.sendFile(__dirname + '/static/js/ajax.json')
+})
 app.listen(port, error => {
   if (error) {
     console.error(error)

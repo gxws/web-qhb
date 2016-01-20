@@ -1,258 +1,1 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>QHB-7-兑换专区-1</title>
-	<link rel="stylesheet" href="../../public/css/public.min.css">
-	<link rel="stylesheet" href="../static/css/base_HD.min.css">
-	<!-- <link rel="stylesheet" href="http://10.1.15.50:8000/static/web-qhb/static/css/base_HD.mod.css"> -->
-</head>
-<body >
-	<div id="wrap" class="pa wrap bg-exchange">
-		<script id="nodeData" type="text/html">
-			<div class="pa menu tr">
-				{{each menuurl as v i}}
-					<a href="{{v}}" class="menu-btn {{if i==0}}back{{else if i==1}}home{{else}}index{{/if}}"></a>
-				{{/each}}
-			</div>
-			<!-- <a id="recommend" href="#" class="pa recommend"></a> -->
-			<div id="recommend_bx" class="pa recommend_bx">
-				<a id="recommend" href="#" class="pa recommend J_focus"></a>
-				{{each recommendimg as v i}}
-					<div data-url={{v.url}} class="pa img_bx {{if i==0 }}middle{{else if i==1}}right{{else}}left{{/if}}"><img src="{{v.src}}" width="100%" height="100%"></div>
-				{{/each}}
-				<div class="pa roll_box tc">
-					<span class="active"></span>
-					<span></span>
-					<span></span>
-				</div>
-				<div id="quan_bx_before" class="pa quan_bx"></div>
-			</div>
-			<a id="prev" href="javascript:;" class="pa pg lg bottom prev"></a>
-			<div id="quan_bx_after" class="pa quan_bx sc"></div>
-			<a id="next" href="javascript:;" class="pa pg lg bottom next"></a>
-			<a href="#" class="pa hbwf org tc"></a>
-			<div id="pgnb" class="pa pgnb">
-				<em class="pa curr"></em>/
-				<em class="pa total"></em>
-			</div>
-			<div class="pa modal fail"></div>
-			<div class="pa modal success"></div>
-		</script>
-	</div>
-	<script id="quan" type="html/text">
-		{{each list as v i}}
-			{{if i <= 4*row-1}}
-				<div class="quan">
-					<div class="pa imgbx"><img src="{{v.imgsrc}}" alt="" width="100%" height="100%"></div>
-					<div class="pa title">{{v.title}}</div>
-					{{if v.enable&&v.residue>0}}
-						<a href="{{v.exchangeurl}}" class="pa btn btn-xs"><span>立即兑换</span></a>
-					{{else}}
-						<span class="pa btn btn-xs disable"><span>{{if v.residue<=0}}已兑完{{else}}已兑换{{/if}}</span></span>
-					{{/if}}
-					<a href="{{v.prefectureurl}}" class="pa info">专区介绍</a>
-				</div>
-			{{/if}}
-		{{/each}}
-	</script>
-	<!-- <script src="../../public/js/jquery.min.js"></script>
-	<script src="../../public/js/jquery.x.min.js"></script>
-	<script src="../../public/js/template.js"></script>
-	<script src="../static/js/base_HD.js"></script>
-	<script src="../static/js/base_HD_Ajax.js"></script> -->
-	<!-- <script src="http://10.1.15.50:8000/static/web-qhb/static/js/base_HD.mod.js"></script> -->
-	<script>
-		var data = {
-				menuurl: ['#', '#', '#'],//菜单按钮URL,按顺序输出数组,
-				recommendimg: [
-					{
-						src: "../static/images/pic_1.jpg",
-						url: "baidu.com"
-					},
-					{
-						src: "../static/images/focus_img.jpg",
-						url: "google.com"
-					},
-					{
-						src: "../static/images/focus_img.jpg",
-						url: "weibo.com"
-					}
-				],
-				list:[
-					{
-						residue:200,
-						enable: 1,
-						imgsrc:"../static/images/logo_md.png",
-						title:"芒果芒果芒果1",
-						exchangeurl:"#",
-						prefectureurl:"www.weibo.com"
-					},
-					{
-						residue:200,
-						enable: 0,
-						imgsrc:"../static/images/icon_qz.jpg",
-						title:"芒果芒tvt2",
-						exchangeurl:"www.baidu.com",
-						prefectureurl:"www.weibo.com"
-					},
-					{
-						residue:0,
-						enable: 1,
-						imgsrc:"../static/images/icon_mgtv.jpg",
-						title:"1313果芒果3",
-						exchangeurl:"www.baidu.com",
-						prefectureurl:"www.weibo.com"
-					},
-					{
-						residue:0,
-						enable: 1,
-						imgsrc:"../static/images/icon_yx.jpg",
-						title:"AAAA果芒果4",
-						exchangeurl:"www.baidu.com",
-						prefectureurl:"www.weibo.com"
-					},
-					{
-						residue:200,
-						enable: 1,
-						imgsrc:"../static/images/icon_qz.jpg",
-						title:"芒果芒tvt5",
-						exchangeurl:"www.baidu.com",
-						prefectureurl:"www.weibo.com"
-					},
-					{
-						residue:200,
-						enable: 1,
-						imgsrc:"../static/images/icon_mgtv.jpg",
-						title:"1313果芒果6",
-						exchangeurl:"www.baidu.com",
-						prefectureurl:"www.weibo.com"
-					},
-					{
-						residue:200,
-						enable: 1,
-						imgsrc:"../static/images/icon_yx.jpg",
-						title:"AAAA果芒果7",
-						exchangeurl:"www.baidu.com",
-						prefectureurl:"www.weibo.com"
-					},
-					{
-						residue:0,
-						enable: 0,
-						imgsrc:"../static/images/icon_mgtv.jpg",
-						title:"芒果芒果芒果8",
-						exchangeurl:"www.baidu.com",
-						prefectureurl:"www.weibo.com"
-					},
-					{
-						residue:200,
-						enable: 1,
-						imgsrc:"../static/images/icon_qz.jpg",
-						title:"芒果芒tvt9",
-						exchangeurl:"www.baidu.com",
-						prefectureurl:"www.weibo.com"
-					},
-					{
-						residue:200,
-						enable: 1,
-						imgsrc:"../static/images/icon_mgtv.jpg",
-						title:"1313果芒果10",
-						exchangeurl:"www.baidu.com",
-						prefectureurl:"www.weibo.com"
-					},
-					{
-						residue:200,
-						enable: 1,
-						imgsrc:"../static/images/icon_mgtv.jpg",
-						title:"1313果芒果11",
-						exchangeurl:"www.baidu.com",
-						prefectureurl:"www.weibo.com"
-					},
-					{
-						residue:200,
-						enable: 1,
-						imgsrc:"../static/images/icon_mgtv.jpg",
-						title:"1313果芒果12",
-						exchangeurl:"www.baidu.com",
-						prefectureurl:"www.weibo.com"
-					},
-					{
-						residue:200,
-						enable: 0,
-						imgsrc:"../static/images/icon_mgtv.jpg",
-						title:"1313果芒果13",
-						exchangeurl:"www.baidu.com",
-						prefectureurl:"www.weibo.com"
-					},
-					{
-						residue:0,
-						enable: 1,
-						imgsrc:"../static/images/icon_mgtv.jpg",
-						title:"1313果芒果14",
-						exchangeurl:"www.baidu.com",
-						prefectureurl:"www.weibo.com"
-					},
-					{
-						residue:200,
-						enable: 1,
-						imgsrc:"../static/images/icon_mgtv.jpg",
-						title:"1313果芒果15",
-						exchangeurl:"www.baidu.com",
-						prefectureurl:"www.weibo.com"
-					},
-					{
-						residue:200,
-						enable: 1,
-						imgsrc:"../static/images/icon_mgtv.jpg",
-						title:"1313果芒果16",
-						exchangeurl:"www.baidu.com",
-						prefectureurl:"www.weibo.com"
-					},
-					{
-						residue:200,
-						enable: 1,
-						imgsrc:"../static/images/icon_mgtv.jpg",
-						title:"1313果芒果17",
-						exchangeurl:"www.baidu.com",
-						prefectureurl:"www.weibo.com"
-					},
-					{
-						residue:200,
-						enable: 1,
-						imgsrc:"../static/images/icon_mgtv.jpg",
-						title:"1313果芒果18",
-						exchangeurl:"www.baidu.com",
-						prefectureurl:"www.weibo.com"
-					}
-				],
-				row: 1
-			},
-			html = template('nodeData',data);
-		document.getElementById('wrap').innerHTML = html;
-		var quanhtml = template('quan',data);
-		document.getElementById('quan_bx_before').innerHTML = quanhtml;
-		$.pagination({
-			pagnbId:"pgnb",
-			templateId: "quan",//模板ID
-			containerId: "quan_bx_after",//容器ID
-			//curr: 1,//当前页码
-			size: 4,//显示数量
-			//total: 15,//总记录数
-			row: 3,//每行个数
-			span:4,
-			extra: 8,//额外数量
-			other: true,//开启其他模式
-			items: data.list //数据
-		});
-		WS.base.exchangeData = {
-			success: 4,
-			title: '芒果TV',
-			perception: 30,
-			spurl: 'www.baidu.com',
-			exchangeurl: '#',
-			msg: '错误提示错误',
-			url: '02_HD.html'
-		}
-	</script>
-</body>
-</html>
+<!DOCTYPE html><html lang="en"><head>	<meta charset="UTF-8">	<title>QHB-7-兑换专区-1</title>	<!-- <link rel="stylesheet" href="../../public/css/public.min.css">	<link rel="stylesheet" href="../static/css/base_HD.min.css"> -->	<!-- <link rel="stylesheet" href="http://10.1.15.50:8000/static/web-qhb/static/css/base_HD.mod.css"> -->	<link rel="stylesheet" href="../static/css/style.css"></head><body >	<div id="wrap" class="pa wrap bg-exchange">		<script id="nodeData" type="text/html">			<div class="pa menu tr">				{{each menuurl as v i}}					<a href="{{v}}" class="menu-btn {{if i==0}}back{{else if i==1}}home{{else}}index{{/if}}"></a>				{{/each}}			</div>			<!-- <a id="recommend" href="#" class="pa recommend"></a> -->			<div id="recommend_bx" class="pa recommend_bx">				<a id="recommend" href="#" class="pa recommend J_focus"></a>				{{each recommendimg as v i}}					<div data-url={{v.url}} class="pa img_bx {{if i==0 }}middle{{else if i==1}}right{{else}}left{{/if}}"><img src="{{v.src}}" width="100%" height="100%"></div>				{{/each}}				<div class="pa roll_box tc">					<span class="active"></span>					<span></span>					<span></span>				</div>				<div id="quan_bx_before" class="pa quan_bx"></div>			</div>			<a id="prev" href="javascript:;" class="pa pg lg bottom prev"></a>			<div id="quan_bx_after" class="pa quan_bx sc"></div>			<a id="next" href="javascript:;" class="pa pg lg bottom next"></a>			<a href="#" class="pa hbwf org tc"></a>			<div id="pgnb" class="pa pgnb">				<em class="pa curr"></em>/				<em class="pa total"></em>			</div>			<div class="pa modal fail"></div>			<div class="pa modal success"></div>		</script>	</div>	<script id="quan" type="html/text">		{{each list as v i}}			{{if i <= 4*row-1}}				<div class="quan">					<div class="pa imgbx"><img src="{{v.imgsrc}}" alt="" width="100%" height="100%"></div>					<div class="pa title">{{v.title}}</div>					{{if v.enable&&v.residue>0}}						<a href="{{v.exchangeurl}}" class="pa btn btn-xs"><span>立即兑换</span></a>					{{else}}						<span class="pa btn btn-xs disable"><span>{{if v.residue<=0}}已兑完{{else}}已兑换{{/if}}</span></span>					{{/if}}					<a href="{{v.prefectureurl}}" class="pa info">专区介绍</a>				</div>			{{/if}}		{{/each}}	</script>	<!-- <script src="../../public/js/jquery.min.js"></script>	<script src="../../public/js/jquery.x.min.js"></script>	<script src="../../public/js/template.js"></script>	<script src="../static/js/base_HD.js"></script>	<script src="../static/js/base_HD_Ajax.js"></script> -->	<!-- <script src="http://10.1.15.50:8000/static/web-qhb/static/js/base_HD.mod.js"></script> -->	<!-- <script src="/build/bundle.js"></script> -->	<script src="../static/js/bundle.js"></script>	<script>		var data = {				menuurl: ['#', '#', '#'],//菜单按钮URL,按顺序输出数组,				recommendimg: [					{						src: "../static/images/pic_1.jpg",						url: "baidu.com"					},					{						src: "../static/images/focus_img.jpg",						url: "google.com"					},					{						src: "../static/images/focus_img.jpg",						url: "weibo.com"					}				],				list:[					{						residue:200,						enable: 1,						imgsrc:"../static/images/logo_md.png",						title:"芒果芒果芒果1",						exchangeurl:"#",						prefectureurl:"www.weibo.com"					},					{						residue:200,						enable: 0,						imgsrc:"../static/images/icon_qz.jpg",						title:"芒果芒tvt2",						exchangeurl:"www.baidu.com",						prefectureurl:"www.weibo.com"					},					{						residue:0,						enable: 1,						imgsrc:"../static/images/icon_mgtv.jpg",						title:"1313果芒果3",						exchangeurl:"www.baidu.com",						prefectureurl:"www.weibo.com"					},					{						residue:0,						enable: 1,						imgsrc:"../static/images/icon_yx.jpg",						title:"AAAA果芒果4",						exchangeurl:"www.baidu.com",						prefectureurl:"www.weibo.com"					},					{						residue:200,						enable: 1,						imgsrc:"../static/images/icon_qz.jpg",						title:"芒果芒tvt5",						exchangeurl:"www.baidu.com",						prefectureurl:"www.weibo.com"					},					{						residue:200,						enable: 1,						imgsrc:"../static/images/icon_mgtv.jpg",						title:"1313果芒果6",						exchangeurl:"www.baidu.com",						prefectureurl:"www.weibo.com"					},					{						residue:200,						enable: 1,						imgsrc:"../static/images/icon_yx.jpg",						title:"AAAA果芒果7",						exchangeurl:"www.baidu.com",						prefectureurl:"www.weibo.com"					},					{						residue:0,						enable: 0,						imgsrc:"../static/images/icon_mgtv.jpg",						title:"芒果芒果芒果8",						exchangeurl:"www.baidu.com",						prefectureurl:"www.weibo.com"					},					{						residue:200,						enable: 1,						imgsrc:"../static/images/icon_qz.jpg",						title:"芒果芒tvt9",						exchangeurl:"www.baidu.com",						prefectureurl:"www.weibo.com"					},					{						residue:200,						enable: 1,						imgsrc:"../static/images/icon_mgtv.jpg",						title:"1313果芒果10",						exchangeurl:"www.baidu.com",						prefectureurl:"www.weibo.com"					},					{						residue:200,						enable: 1,						imgsrc:"../static/images/icon_mgtv.jpg",						title:"1313果芒果11",						exchangeurl:"www.baidu.com",						prefectureurl:"www.weibo.com"					},					{						residue:200,						enable: 1,						imgsrc:"../static/images/icon_mgtv.jpg",						title:"1313果芒果12",						exchangeurl:"www.baidu.com",						prefectureurl:"www.weibo.com"					},					{						residue:200,						enable: 0,						imgsrc:"../static/images/icon_mgtv.jpg",						title:"1313果芒果13",						exchangeurl:"www.baidu.com",						prefectureurl:"www.weibo.com"					},					{						residue:0,						enable: 1,						imgsrc:"../static/images/icon_mgtv.jpg",						title:"1313果芒果14",						exchangeurl:"www.baidu.com",						prefectureurl:"www.weibo.com"					},					{						residue:200,						enable: 1,						imgsrc:"../static/images/icon_mgtv.jpg",						title:"1313果芒果15",						exchangeurl:"www.baidu.com",						prefectureurl:"www.weibo.com"					},					{						residue:200,						enable: 1,						imgsrc:"../static/images/icon_mgtv.jpg",						title:"1313果芒果16",						exchangeurl:"www.baidu.com",						prefectureurl:"www.weibo.com"					},					{						residue:200,						enable: 1,						imgsrc:"../static/images/icon_mgtv.jpg",						title:"1313果芒果17",						exchangeurl:"www.baidu.com",						prefectureurl:"www.weibo.com"					},					{						residue:200,						enable: 1,						imgsrc:"../static/images/icon_mgtv.jpg",						title:"1313果芒果18",						exchangeurl:"www.baidu.com",						prefectureurl:"www.weibo.com"					}				],				row: 1			},			html = template('nodeData',data);		document.getElementById('wrap').innerHTML = html;		var quanhtml = template('quan',data);		document.getElementById('quan_bx_before').innerHTML = quanhtml;		$.pagination({			pagnbId:"pgnb",			templateId: "quan",//模板ID			containerId: "quan_bx_after",//容器ID			//curr: 1,//当前页码			size: 4,//显示数量			//total: 15,//总记录数			row: 3,//每行个数			span:4,			extra: 8,//额外数量			other: true,//开启其他模式			items: data.list //数据		});		WS.base.exchangeData = {			// success: 4,			// title: '芒果TV',			// perception: 30,			// spurl: 'www.baidu.com',			// exchangeurl: '#',			// msg: '错误提示错误',			// url: '02_HD.html'		}	</script></body></html>

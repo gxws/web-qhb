@@ -41,7 +41,7 @@
 		z-index:1;
 	}
 	&:after{
-		content:"øÕ∑˛»»œﬂ£∫96335";
+		content:"ÂÆ¢ÊúçÁÉ≠Á∫øÔºö96335";
 		position:absolute;
 		@include ps(1035,666);
 		@include fs(26);
@@ -72,7 +72,7 @@
 			border-color:#ea5504;
 		}
 		&:before{
-			content:"∫Ï∞¸ÕÊ∑®";
+			content:"Á∫¢ÂåÖÁé©Ê≥ï";
 			width:100%;
 			line-height:43px;
 		}
@@ -117,7 +117,44 @@
 		display:block;
 		@include bg('qing_btn','png');
 		&:focus{
+			// @include bg('qing_btn','png',-246,0);
+			// &:after{
+			// 	z-index:2;
+			// 	content:"";
+			// 	position:absolute;
+			// 	@include bs(246,186);
+			// 	@include ps(0,0);
+			// 	@include bg('qing_btn','png',-246,0);
+			// 	display:block;
+			// 	// transform:scale3d(1.1,1.1,1.1);
+			// 	// -webkit-transform:scale3d(1.1,1.1,1.1);
+			// 	animation:myfirst 0.5s;
+			// 	-webkit-animation:myfirst 0.5s;
+			// 	animation-iteration-count: 9;
+			// 	-webkit-animation-iteration-count: 9;
+			// 	@keyframes myfirst{
+			// 		from {
+			// 			transform:scale3d(1,1,1);
+			// 			-webkit-transform:scale3d(1,1,1);
+			// 		}
+			// 		to {
+			// 			transform:scale3d(1.1,1.1,1.1);
+			// 			-webkit-transform:scale3d(1.1,1.1,1.1);
+			// 		}
+			// 	}
+			// 	@-webkit-keyframes myfirst {
+			// 		from {
+			// 			transform:scale3d(1,1,1);
+			// 			-webkit-transform:scale3d(1,1,1);
+			// 		}
+			// 		to {
+			// 			transform:scale3d(1.1,1.1,1.1);
+			// 			-webkit-transform:scale3d(1.1,1.1,1.1);
+			// 		}
+			// 	}
+			// }
 			@include bp(-246,0);
+			
 		}
 	}
 	&.end{
