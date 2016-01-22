@@ -68,9 +68,9 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),//热替换模块(非webpack-dev模式)
-    new webpack.NoErrorsPlugin(),
+    // new webpack.optimize.OccurenceOrderPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),//热替换模块(非webpack-dev模式)
+    // new webpack.NoErrorsPlugin(),
     new ExtractTextPlugin('css/style.css', {
       disable: false,
       allChunks: true
