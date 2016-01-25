@@ -1,7 +1,7 @@
 import 'script!jquery'
 import '../../public/js/jquery.x.min'
 import 'script!../../public/js/template'
-import '../static/js/jquery.min'
+import '../static/js/jquery.j'
 import '../static/js/base_HD'
 //import '../static/js/base_HD_Ajax'
 import './sass/reset'

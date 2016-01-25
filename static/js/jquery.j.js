@@ -40,12 +40,12 @@
 						pages = Math.ceil((param.total+param.extra) / (param.size));
 				$total.text(pages);
 				$prev.on('keydown', function(e){
-        	if( param.curr > 1 && e.keyCode==37 || e.keyCode==13){
+        	if( param.curr > 1 && (e.keyCode==37 || e.keyCode==13)){
         			paging(-1);
         	}
         });
         $next.on('keydown', function(e){
-        	if(param.curr < pages && e.keyCode==39 || e.keyCode==13){
+        	if(param.curr < pages && (e.keyCode==39 || e.keyCode==13)){
         			paging(1);
         	}
         });
